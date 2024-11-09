@@ -25,7 +25,7 @@ class TodoItem {
             .addClass("left")
             .append(
                 $('<h2>')
-                    .text(this.id),
+                    .text(this.name),
 
                 $('<p>')
                     .text(this.shortDesc)

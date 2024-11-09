@@ -2,14 +2,16 @@ import $ from "jquery";
 
 class Button {
     constructor(label, onClick) {
-        this.$button = $('<button>')
-            .text(label)
-            .addClass('button')
-            .on('click', onClick);
+        this.label = label
+        this.onClick = onClick
+
     }
 
     render() {
-        return this.$button
+        return $('<button>')
+            .text(this.label)
+            .addClass('button')
+            .on('click', this.onClick)
     }
 }
 

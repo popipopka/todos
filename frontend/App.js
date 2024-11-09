@@ -7,12 +7,20 @@ class App {
     }
 
     init() {
-        const topBar = new TopBar(() => console.log('onSearch'))
+        const todoList = new TodoList()
+
+        todoList.loadData('http://localhost:8080/api/todos').then(() => console.log("GET api/todos"))
+
+        const topBar = new TopBar((q) => {
+            todoList.loadData(`http://localhost:8080/api/todos/find?q=${q}`).then(() => console.log("GET api/todos/find"))
+        })
+
         const sidebar = new Sidebar(
             () => console.log('today'),
             () => console.log('week'),
-            () => console.log('incomplete'))
-        const todoList = new TodoList()
+            () => console.log('check'),
+            () => console.log('uncheck'),
+        )
 
         this.container.append(
             topBar.render(),

@@ -7,17 +7,31 @@ class TodoList {
             .addClass("todo-list-container")
     }
 
+    async loadData(url) {
+        try {
+            const todos = await $.get(url);
+
+            this.$container.empty();
+
+            todos.forEach(todo => {
+                const todoItem = new TodoItem(
+                    todo.id,
+                    todo.name,
+                    todo.shortDesc,
+                    todo.fullDesc,
+                    todo.date,
+                    todo.status
+                ).render()
+
+                this.$container
+                    .append(todoItem)
+            })
+        } catch (err) {
+            console.error("Student upload error:" + err)
+        }
+    }
+
     render() {
-        this.$container.append(
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:10', true).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:05', false).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:00', false).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:00', false).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:00', false).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:00', false).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:00', false).render(),
-            new TodoItem(1, 'Название', 'Описание', 'Полное описание', '08.05.2022 00:00', false).render(),
-        )
         return this.$container
     }
 }

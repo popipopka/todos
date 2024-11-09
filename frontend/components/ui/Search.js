@@ -23,7 +23,7 @@ class Search {
     handleInput(action) {
         clearTimeout(this.typingTimer);
         this.typingTimer = setTimeout(() => {
-            this.onSearch()
+            this.onSearch(this.$searchInput.val())
         }, this.doneTypingInterval);
     }
 

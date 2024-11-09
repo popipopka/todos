@@ -3,13 +3,13 @@ import $ from 'jquery';
 import {Button, CheckBox} from "../index.js";
 
 class Sidebar {
-    constructor(onClickFilterToday, onClickFilterWeek, onToggleIncomplete) {
+    constructor(onClickFilterToday, onClickFilterWeek, onCheck, onUncheck) {
         this.$container = $('<div>')
             .addClass('sidebar')
 
-        this.btnFilterToday = new Button("Сегодня", () => onClickFilterToday)
-        this.btnFilterWeek = new Button("На неделю", () => onClickFilterWeek)
-        this.checkbox = new CheckBox("Только невыполненные", () => onToggleIncomplete)
+        this.btnFilterToday = new Button("Сегодня", onClickFilterToday)
+        this.btnFilterWeek = new Button("На неделю", onClickFilterWeek)
+        this.checkbox = new CheckBox("Только невыполненные", onCheck, onUncheck)
     }
 
     render() {
