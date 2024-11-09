@@ -25,6 +25,7 @@ body {
     background-color: #D1D0D0;
     display: flex;
     top: 0;
+    max-height: 50px;
     left: 0;
     right: 0;
     justify-content: space-between;
@@ -35,7 +36,7 @@ body {
     background-color: #A9A9A9;
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding: 10px;
 }
 
 .search-icon {
@@ -61,6 +62,58 @@ body {
 }
 
 .avatar-icon {
-    font-size: 16px;
     color: #4D4D4D;
+}
+
+.button {
+    background-color: #C4C4C4;
+    color: #000000;
+    border: none;
+    padding: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.35s ease;
+}
+
+.button:hover {
+    background-color: #858585;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    display: flex;
+    padding: 30px 20px;
+    height: 100%;
+    width: 20%;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    gap: 20px;
+}
+
+.sidebar button {
+    padding: 10px;
+    width: 100%;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.custom-checkbox {
+    cursor: pointer;
+}
+
+.checkbox-label {
+    font-size: 18px;
+    color: #000000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
