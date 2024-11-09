@@ -1,4 +1,4 @@
-import {TopBar, Sidebar} from "./components/index.js";
+import {TopBar, Sidebar, TodoList} from "./components/index.js";
 import $ from 'jquery'
 
 class App {
@@ -8,9 +8,21 @@ class App {
 
     init() {
         const topBar = new TopBar(() => console.log('onSearch'))
-        const sidebar = new Sidebar(1, 2, 3, 4)
+        const sidebar = new Sidebar(
+            () => console.log('today'),
+            () => console.log('week'),
+            () => console.log('incomplete'))
+        const todoList = new TodoList()
 
-        this.container.append(topBar.render(), sidebar.render());
+        this.container.append(
+            topBar.render(),
+            $('<div>')
+                .addClass('main-container')
+                .append(
+                    sidebar.render(),
+                    todoList.render()
+                )
+        );
     }
 }
 

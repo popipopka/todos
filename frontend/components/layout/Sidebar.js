@@ -7,9 +7,9 @@ class Sidebar {
         this.$container = $('<div>')
             .addClass('sidebar')
 
-        this.btnFilterToday = new Button("Сегодня", () => console.log('today'))
-        this.btnFilterWeek = new Button("На неделю", () => console.log('week'))
-        this.checkbox = new CheckBox("Только невыполненные", () => console.log("check"))
+        this.btnFilterToday = new Button("Сегодня", () => onClickFilterToday)
+        this.btnFilterWeek = new Button("На неделю", () => onClickFilterWeek)
+        this.checkbox = new CheckBox("Только невыполненные", () => onToggleIncomplete)
     }
 
     render() {
